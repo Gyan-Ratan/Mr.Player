@@ -7,7 +7,8 @@ from BlurWindow.blurWindow import blur
 root = Tk()
 
 root.config(bg='black')
-
+root.iconbitmap('resources/images/icon.ico')
+root.title("  MR. PLAYER")
 root.wm_attributes("-transparent", '#010812')
 root.geometry('1000x600')
 
