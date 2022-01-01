@@ -2,7 +2,7 @@ from tkinter import *
 from ctypes import windll
 
 
-from BlurWindow.blurWindow import blur
+from  BlurWindow.blurWindow import blur
 
 root = Tk()
 
