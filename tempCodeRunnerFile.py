@@ -1,1 +1,1 @@
-BlurWindow.blurWindow
+bottomFrame.pack_propagate(0)

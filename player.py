@@ -1,9 +1,11 @@
 from tkinter import *
 from ctypes import windll
+from BlurWindow.blurWindow import blur
+# Here Define all the Functions
 
 
-from  BlurWindow.blurWindow import blur
-
+#Functions Ends 
+#keep the root section at the End
 root = Tk()
 
 root.config(bg='black')
@@ -44,7 +46,16 @@ label1.pack(ipadx=10,ipady=10,padx=100,pady=100)
 # RIGHT PANE
 rightFrame = Frame(root, bg='#152033',width=700,height=540)
 rightFrame.pack_propagate(0)
-rightFrame.pack(fill='both', side='right', expand='True')
+rightFrame.pack(fill='both',side='right')
+#Right's Section 
+'''Section 1'''
+LeftSection = LabelFrame(rightFrame, bg='black',width=300,height=400)
+LeftSection.pack(side='left', padx=0, pady=0, anchor='w')
+'''Section 2'''
+LeftSection = LabelFrame(rightFrame, bg='black',width=300,height=400)
+LeftSection.pack(side='right', padx=0, pady=0, anchor='e')
+#right Section End
+
 # BOTTOM PANE Right
 bottomFrame = Frame(rightFrame, width=700, height=60, bg='#0d1321')
 bottomFrame.pack_propagate(0)
