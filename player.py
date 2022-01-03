@@ -15,7 +15,7 @@ root.wm_attributes("-transparent", '#010812')
 root.geometry('1000x600')
 
 root.update()
-
+root.resizable(False,False)
 hWnd = windll.user32.GetForegroundWindow()
 blur(hWnd)
 
@@ -38,14 +38,12 @@ This for choosing your own color but careful ^_^
 '''
 # LEFT PANE
 leftFrame = Frame(root, bg='#010812',width=300,height=540)
-leftFrame.pack_propagate(0)
 leftFrame.pack(fill='both',side='left')
 # LEFT PANE ELEMENTS
 label1=Label(leftFrame,text="COOL")# To make the text orientation verticl use ,wraplength=1
 label1.pack(ipadx=10,ipady=10,padx=100,pady=100)
 # RIGHT PANE
 rightFrame = Frame(root, bg='#152033',width=700,height=540)
-rightFrame.pack_propagate(0)
 rightFrame.pack(fill='both',side='right')
 #Right's Section 
 '''Section 1'''
@@ -58,11 +56,9 @@ LeftSection.pack(side='right', padx=0, pady=0, anchor='e')
 
 # BOTTOM PANE Right
 bottomFrame = Frame(rightFrame, width=700, height=60, bg='#0d1321')
-bottomFrame.pack_propagate(0)
 bottomFrame.pack(side='left', padx=0, pady=0, anchor='sw',expand='True')
 # BOTTOM PANE left
 bottomFrame = Frame(leftFrame, width=300, height=60, bg='#0d1321')
-bottomFrame.pack_propagate(0)
 bottomFrame.pack(side='left', padx=0, pady=0, anchor='sw',expand='True')
 
 
