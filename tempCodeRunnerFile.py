@@ -1,1 +1,0 @@
-bottomFrame.pack_propagate(0)
