@@ -27,8 +27,6 @@ def hhmmss(ms):
     return ("%d:%02d:%02d" % (h, m, s)) if h else ("%d:%02d" % (m, s))
 
 
-# keep track of the Host Operating System
-hostOS = platform.system().lower()
 # accept only [.mp3 .wav .aac .wma .m4a .ac3 .amr .ts .flac] file extensions
 supported_codecs = ['.mp3', '.wav', '.aac', '.wma', '.m4a', '.ac3', '.amr', '.ts', '.flac']
 # keep track of all songs added till now to the player
@@ -158,8 +156,7 @@ class MediaPlayer(Ui_MrPlayer):
         try:
             filter_text = "PyMediaPlayer Playlist (*{});;".format(playlist_extension)
 
-            if hostOS == 'windows': dir = os.path.expanduser('~') + "\\Documents\\PyMediaPlayer"
-            if hostOS == 'linux': dir = os.path.expanduser('~') + "/Documents/PyMediaPlayer"
+            dir = os.path.expanduser('~') + "\\Documents\\PyMediaPlayer"
 
             if not os.path.isdir(dir): dir = ""
 
@@ -194,8 +191,7 @@ class MediaPlayer(Ui_MrPlayer):
         else:
             filter_text = "PyMediaPlayer Playlist (*{});;".format(playlist_extension)
 
-            if hostOS == 'windows': dir = os.path.expanduser('~') + "\\Documents\\PyMediaPlayer"
-            if hostOS == 'linux': dir = os.path.expanduser('~') + "/Documents/PyMediaPlayer"
+            dir = os.path.expanduser('~') + "\\Documents\\PyMediaPlayer"
 
             try: os.mkdir(dir)
             except Exception as err: pass
@@ -476,8 +472,7 @@ class MediaPlayer(Ui_MrPlayer):
                     file_path = self.player.currentMedia().canonicalUrl().toLocalFile()  # get the abosulte path of the music
 
                     # get the absolute path of temporary folder of PyMediaPlayer
-                    if hostOS == 'windows': temp_dir = str(tempfile.gettempdir()) + '\\PyMediaPlayer\\'
-                    if hostOS == 'linux': temp_dir = str(tempfile.gettempdir()) + '/PyMediaPlayer/'
+                    temp_dir = str(tempfile.gettempdir()) + '\\PyMediaPlayer\\'
 
                     try: os.mkdir(temp_dir)  # create a temporary folder for PyMediaPlayer if not present
                     except Exception as e: pass  # generates error if already present
