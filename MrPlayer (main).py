@@ -11,7 +11,7 @@ import shutil
 from PyQt5.QtWidgets import QMainWindow
 
 # Local imports
-from PyMediaPlayerAbstract import MediaPlayer, hostOS
+from MrPlayerAbstract import MediaPlayer, hostOS
 from SingleApplication import SingleApplicationWithMessaging, SingleApplication
 
 
