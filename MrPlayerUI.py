@@ -21,7 +21,7 @@ class Ui_MrPlayer(object):
         sizePolicy.setHeightForWidth(MrPlayer.sizePolicy().hasHeightForWidth())
         MrPlayer.setSizePolicy(sizePolicy)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(".\\icon/PyMediaPlayer.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(".\\icon/MrPlayer.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MrPlayer.setWindowIcon(icon)
         MrPlayer.setStyleSheet("")
         self.centralwidget = QtWidgets.QWidget(MrPlayer)

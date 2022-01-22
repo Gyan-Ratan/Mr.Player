@@ -1,11 +1,8 @@
-# This file contains all the abstract classes of PyMediaPlayer which are not directly required.
-# These classes will be imported in the 'PyMediaPlayer.py' file
-# NOTE:- DON'T MODIFY ANYTHING HERE, OR ELSE WHOLE CODE MIGHT GET BROKEN!!!!.
-
+# This file contains all the abstract classes of MrPlayer which are not directly required.
+# These classes will be imported in the 'MrPlayer.py' file
 
 import io
 import os
-import platform
 import tempfile
 
 import stagger
@@ -32,7 +29,7 @@ supported_codecs = ['.mp3', '.wav', '.aac', '.wma', '.m4a', '.ac3', '.amr', '.ts
 # keep track of all songs added till now to the player
 songs_database = []
 # supports playlist file only of this type
-playlist_extension = ".pyplaylist" # CHANGE THIS YOUR <--
+playlist_extension = ".myplaylist" # CHANGE THIS YOUR <--
 # keeps track of default values of the metadata files
 default_ui_values = dict()
 
@@ -154,9 +151,9 @@ class MediaPlayer(Ui_MrPlayer):
         """Open local playlist file and add songs to the player playlist"""
 
         try:
-            filter_text = "PyMediaPlayer Playlist (*{});;".format(playlist_extension)
+            filter_text = "MrPlayer Playlist (*{});;".format(playlist_extension)
 
-            dir = os.path.expanduser('~') + "\\Documents\\PyMediaPlayer"
+            dir = os.path.expanduser('~') + "\\Documents\\MrPlayer"
 
             if not os.path.isdir(dir): dir = ""
 
@@ -189,9 +186,9 @@ class MediaPlayer(Ui_MrPlayer):
             alert_box.setInformativeText("Add some songs to the playlist to save it as a file.")
             alert_box.show()
         else:
-            filter_text = "PyMediaPlayer Playlist (*{});;".format(playlist_extension)
+            filter_text = "MrPlayer Playlist (*{});;".format(playlist_extension)
 
-            dir = os.path.expanduser('~') + "\\Documents\\PyMediaPlayer"
+            dir = os.path.expanduser('~') + "\\Documents\\MrPlayer"
 
             try: os.mkdir(dir)
             except Exception as err: pass
@@ -471,10 +468,10 @@ class MediaPlayer(Ui_MrPlayer):
                 if self.player.isMetaDataAvailable():  # check if metadata is available in the current song
                     file_path = self.player.currentMedia().canonicalUrl().toLocalFile()  # get the abosulte path of the music
 
-                    # get the absolute path of temporary folder of PyMediaPlayer
-                    temp_dir = str(tempfile.gettempdir()) + '\\PyMediaPlayer\\'
+                    # get the absolute path of temporary folder of MrPlayer
+                    temp_dir = str(tempfile.gettempdir()) + '\\MrPlayer\\'
 
-                    try: os.mkdir(temp_dir)  # create a temporary folder for PyMediaPlayer if not present
+                    try: os.mkdir(temp_dir)  # create a temporary folder for MrPlayer if not present
                     except Exception as e: pass  # generates error if already present
 
                     title = self.player.metaData(QMediaMetaData.Title)                 # song title
@@ -489,8 +486,6 @@ class MediaPlayer(Ui_MrPlayer):
 
                     sample_rate = self.player.metaData(QMediaMetaData.SampleRate)  # song sample rate in Hz
 
-                    # NOTE :- Everything works well in Windows OS. Linux OS or other OSes might create some bugs
-
                     try:
                         media = stagger.read_tag(file_path)  # read the metadata of the song
                         by_data = media[stagger.id3.APIC][0].data  # get the album art metadata
@@ -501,7 +496,7 @@ class MediaPlayer(Ui_MrPlayer):
                                                          str(self.player.currentMedia().canonicalUrl().fileName()))
                         imageFile.save(image_name)  # save the image in the desired location and name
                     except Exception as e:
-                        image_name = "icon/PyMediaPlayer.png"  # if there was not album art, put Logo in its place
+                        image_name = "icon/MrPlayer.png"  # if there was not album art, put Logo in its place
 
                     self.ThumbnailView.setScaledContents(True)  # cover the entire placeholder
                     self.ThumbnailView.setPixmap(QtGui.QPixmap(image_name))  # set the desired image as the album art
