@@ -702,9 +702,9 @@ class Ui_MrPlayer(object):
         _translate = QtCore.QCoreApplication.translate
         MrPlayer.setWindowTitle(_translate("MrPlayer", "Mr. Player"))
         self.ThumbnailView.setToolTip(_translate("MrPlayer", "Song Album Art"))
-        self.ThumbnailView.setText(_translate("MrPlayer", "<html><head/><body><p>Drag and Drop songs to add them to the Playlist or Click on the Folder icon to add songs from File Manager.</p><p>Only Audio files are supported.</p></body></html>"))
-        self.PlaylistView.setToolTip(_translate("MrPlayer", "Playlist - Drag and drop songs here to play them\n"
-"Double click a song to remove it"))
+        # self.ThumbnailView.setText(_translate("MrPlayer", "<html><head/><body><p>Drag and Drop songs to add them to the Playlist or Click on the Folder icon to add songs from File Manager.</p><p>Only Audio files are supported.</p></body></html>"))
+        # self.PlaylistView.setToolTip(_translate("MrPlayer", "Playlist - Drag and drop songs here to play them\n"
+# "Double click a song to remove it"))
         self.OpenPlaylistButton.setToolTip(_translate("MrPlayer", "Open Playlist file"))
         self.EmptyPlaylistButton.setToolTip(_translate("MrPlayer", "Empty current Playlist"))
         self.RecommendButton.setText(_translate("MrPlayer", "R"))
