@@ -27,7 +27,7 @@ class MainWindow(QMainWindow, MediaPlayer):
 
 def main():
     # Unique key of the app (Shouldn't match with other apps in the Host system !!!!!)
-    key = 'PYMEDIAPLAYER-PYQT5-CHARITRA-AGARWAL'
+    key = 'Mr.Player'
 
     # send commandline args as message
     if len(sys.argv) >= 1:
