@@ -26,7 +26,7 @@ class MainWindow(QMainWindow, MediaPlayer):
 
 
 def main():
-    # Unique key of the app (Shouldn't match with other apps in the Host system !!!!!)
+    # Unique key of the app
     key = 'Mr.Player'
 
     # send commandline args as message
@@ -42,7 +42,7 @@ def main():
 
     if not app.isRunning():
         # Run the new instance if the app is not running
-        window = MainWindow()                               # Main window of the app
+        window = MainWindow()                           # Main window of the app
         app.setApplicationName("Mr. Player")            # give name of the application
         sys.exit(app.exec_())                               # Run the app
 
