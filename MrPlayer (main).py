@@ -1,8 +1,3 @@
-# Instructions:-
-# 1. Install libraries:- pyqt5, pyqt5-tools, stagger, pillow
-# 2. Icons folder should be correctly placed
-
-
 # Universal imports
 import os
 import sys
