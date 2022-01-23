@@ -24,7 +24,8 @@
     <normaloff>icon/PyMediaPlayer.png</normaloff>icon/PyMediaPlayer.png</iconset>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">background-color: rgb(43, 64, 99);
+color: rgb(255, 255, 255);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="sizePolicy">
@@ -68,7 +69,7 @@ border:none;
 opacity:0.1;</string>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Drag and Drop songs to add them to the Playlist or Click on the Folder icon to add songs from File Manager.&lt;/p&gt;&lt;p&gt;Only Audio files are supported.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="textFormat">
            <enum>Qt::RichText</enum>

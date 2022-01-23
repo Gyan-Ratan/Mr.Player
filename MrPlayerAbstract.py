@@ -29,7 +29,7 @@ supported_codecs = ['.mp3', '.wav', '.aac', '.wma', '.m4a', '.ac3', '.amr', '.ts
 # keep track of all songs added till now to the player
 songs_database = []
 # supports playlist file only of this type
-playlist_extension = ".myplaylist" # CHANGE THIS YOUR <--
+playlist_extension = ".mrPlaylist" # CHANGE THIS YOUR <--
 # keeps track of default values of the metadata files
 default_ui_values = dict()
 
