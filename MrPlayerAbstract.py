@@ -10,7 +10,6 @@ from PyQt5.QtCore import QUrl
 from PyQt5.QtMultimedia import *
 from PyQt5.QtWidgets import QFileDialog, QMessageBox
 from pyqtgraph.Qt import QtWidgets
-
 from MrPlayerUI import Ui_MrPlayer
 from RUI import Ui_MainWindow
 
@@ -150,6 +149,8 @@ class MediaPlayer(Ui_MrPlayer):
             self.ui = Ui_MainWindow()
             self.ui.setupUi(self.window)
             self.window.show()
+
+
     def open_playlist_button(self):
         """Open local playlist file and add songs to the player playlist"""
 
@@ -499,7 +500,7 @@ class MediaPlayer(Ui_MrPlayer):
                                                          str(self.player.currentMedia().canonicalUrl().fileName()))
                         imageFile.save(image_name)  # save the image in the desired location and name
                     except Exception as e:
-                        image_name = "icon/MrPlayer.png"  # if there was not album art, put Logo in its place
+                        image_name = "icon/djalbum.png"  # if there was not album art, put Logo in its place
 
                     self.ThumbnailView.setScaledContents(True)  # cover the entire placeholder
                     self.ThumbnailView.setPixmap(QtGui.QPixmap(image_name))  # set the desired image as the album art

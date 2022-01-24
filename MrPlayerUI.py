@@ -11,7 +11,7 @@ class Ui_MrPlayer(object):
         sizePolicy.setHeightForWidth(MrPlayer.sizePolicy().hasHeightForWidth())
         MrPlayer.setSizePolicy(sizePolicy)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("icon/PyMediaPlayer.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("icon/dj.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MrPlayer.setWindowIcon(icon)
         MrPlayer.setStyleSheet("background-color: rgb(43, 64, 99);\n"
 "color: rgb(255, 255, 255);")
