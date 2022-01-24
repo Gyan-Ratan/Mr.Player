@@ -14,7 +14,7 @@ class Ui_MrPlayer(object):
         icon.addPixmap(QtGui.QPixmap("icon/dj.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MrPlayer.setWindowIcon(icon)
         MrPlayer.setStyleSheet("background-color: rgb(43, 64, 99);\n"
-"color: rgb(255, 255, 255);")
+"color: rgb(0, 170, 255);")
         self.centralwidget = QtWidgets.QWidget(MrPlayer)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
