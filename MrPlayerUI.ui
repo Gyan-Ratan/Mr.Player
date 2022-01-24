@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>730</width>
-    <height>515</height>
+    <height>520</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -240,7 +240,11 @@ background: qradialgradient(cx: 0.4, cy: -0.1, fx: 0.4, fy: -0.1, radius: 1.35, 
 </string>
               </property>
               <property name="text">
-               <string>R</string>
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>icon/recommendation.png</normaloff>icon/recommendation.png</iconset>
               </property>
              </widget>
             </item>
@@ -317,8 +321,8 @@ background: qradialgradient(cx: 0.4, cy: -0.1, fx: 0.4, fy: -0.1, radius: 1.35, 
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>290</width>
-               <height>150</height>
+               <width>285</width>
+               <height>155</height>
               </rect>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_2">
