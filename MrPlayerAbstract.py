@@ -1,5 +1,3 @@
-# This file contains all the abstract classes of MrPlayer which are not directly required.
-# These classes will be imported in the 'MrPlayer.py' file
 
 import io
 import os
