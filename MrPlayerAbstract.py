@@ -11,8 +11,10 @@ from PyQt5 import QtGui, QtCore
 from PyQt5.QtCore import QUrl
 from PyQt5.QtMultimedia import *
 from PyQt5.QtWidgets import QFileDialog, QMessageBox
+from pyqtgraph.Qt import QtWidgets
 
 from MrPlayerUI import Ui_MrPlayer
+from RUI import Ui_MainWindow
 
 
 def hhmmss(ms):
@@ -29,7 +31,7 @@ supported_codecs = ['.mp3', '.wav', '.aac', '.wma', '.m4a', '.ac3', '.amr', '.ts
 # keep track of all songs added till now to the player
 songs_database = []
 # supports playlist file only of this type
-playlist_extension = ".mrPlaylist" # CHANGE THIS YOUR <--
+playlist_extension = ".mrPlayer" # CHANGE THIS YOUR <--
 # keeps track of default values of the metadata files
 default_ui_values = dict()
 
@@ -146,7 +148,10 @@ class MediaPlayer(Ui_MrPlayer):
             print("Error in class MediaPlayer:", err)
     #Custom Function
     def Recommend(self):
-        print("Comming Soon")
+            self.window = QtWidgets.QMainWindow()
+            self.ui = Ui_MainWindow()
+            self.ui.setupUi(self.window)
+            self.window.show()
     def open_playlist_button(self):
         """Open local playlist file and add songs to the player playlist"""
 
