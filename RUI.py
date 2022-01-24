@@ -1,13 +1,8 @@
 
-from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5 import *
+from PyQt5 import QtCore, QtWidgets
+
 '''Recommendation'''
 import pandas as pd
-import numpy as np
-import seaborn as sns
-import plotly.express as px
-import plotly.graph_objects as go
-import matplotlib.pyplot as plt
 # import plotly
 from sklearn.preprocessing import StandardScaler
 from scipy.spatial import distance
