@@ -108,9 +108,9 @@ class MediaPlayer(Ui_MrPlayer):
             self.PlaylistView.doubleClicked.connect(self.remove_song)
 
             # button connections
-
-            self.RecommendButton.clicked.connect(self.Recommend)
-
+            #custom button connection
+            self.RecommendButton.clicked.connect(self.RecommendWin) #Recommend
+            # custom button connection ENDS
             self.ShuffleButton.clicked.connect(self.shuffle_button)
             self.RepeatButton.clicked.connect(self.repeat_button)
             self.StopButton.clicked.connect(self.stop_button)
@@ -149,7 +149,8 @@ class MediaPlayer(Ui_MrPlayer):
             self.ui = Ui_MainWindow()
             self.ui.setupUi(self.window)
             self.window.show()
-
+    def RecommendWin(self):
+        os.system("python recommend.py")
 
     def open_playlist_button(self):
         """Open local playlist file and add songs to the player playlist"""
