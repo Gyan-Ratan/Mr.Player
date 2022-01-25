@@ -11,7 +11,6 @@ from PyQt5.QtMultimedia import *
 from PyQt5.QtWidgets import QFileDialog, QMessageBox
 from pyqtgraph.Qt import QtWidgets
 from MrPlayerUI import Ui_MrPlayer
-from RUI import Ui_MainWindow
 
 
 def hhmmss(ms):

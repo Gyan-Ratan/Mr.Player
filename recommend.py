@@ -1,8 +1,5 @@
 import webbrowser
 from dotenv import load_dotenv
-import webbrowser
-
-from dotenv import load_dotenv
 
 load_dotenv()
 import spotipy
@@ -34,8 +31,8 @@ def display_recommendations(response):
     lbl_artist_name.grid(row=0, column=1)
     lbl_play_it.grid(row=0, column=2)
     for idx, track in enumerate(response['tracks']):
-        lbl_track_name_recommneded = create_label(track['name'])
-        lbl_track_name_recommneded.grid(row=idx + 1, column=0)
+        lbl_track_name_recommended = create_label(track['name'])
+        lbl_track_name_recommended.grid(row=idx + 1, column=0)
         lbl_artist_name_recommended = create_label(track['artists'][0]['name'])
         lbl_artist_name_recommended.grid(row=idx + 1, column=1)
         btn_play_it_recommended = create_button('Play It', track['external_urls']['spotify'])
