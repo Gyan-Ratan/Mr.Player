@@ -92,8 +92,10 @@ There is one file you need to create for the Spotify API `cred.py` Further expla
 
 Open Command prompt and install these python libraries [just COPY PASTE in Command Prompt/Terminal]
 
-1. Open terminal in the same folder and run this to directly install the the libraries at once ```pip install -r requirements.txt```
-2. If it gives any Error Please Report and Install them seperately
+1. Open terminal in the same folder and run this to directly install the the libraries at once 
+2. ```
+   pip install -r requirements.txt
+4. If it gives any Error Please Report and Install them seperately
 * ```
   pip install PyQt5
 * ```
