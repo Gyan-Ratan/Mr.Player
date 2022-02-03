@@ -1,9 +1,9 @@
 ---
 name: Bug report
-about: Create a report to help us improve
+about: Report us if you face any Problem
 title: ''
-labels: ''
-assignees: ''
+labels: bug
+assignees: Himanshu-Verma-10, Mysharsh
 
 ---
 
