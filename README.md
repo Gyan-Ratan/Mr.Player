@@ -195,7 +195,7 @@ HEHEHE
 <!-- CONTACT -->
 ## Contact
 
-Harsh Tyagi - [GyanRatan@Linkedin](https://www.linkedin.com/in/gyanratan636/) - gyanratan636@gmail.com <br />
+Harsh Tyagi - [HarshTyagi@Linkedin](https://www.linkedin.com/in/harshtyagi12/) - harshtyagi0012@gmail.com <br />
 Himanshu Verma - [GyanRatan@Linkedin](https://www.linkedin.com/in/gyanratan636/) - gyanratan636@gmail.com <br />
 Gyan Ratan - [GyanRatan@Linkedin](https://www.linkedin.com/in/gyanratan636/) - gyanratan636@gmail.com <br />
 Project Link: [Mr.Player](https://github.com/Gyan-Ratan/Mr.Player)
