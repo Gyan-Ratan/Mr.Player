@@ -222,3 +222,4 @@ Project Link: [Mr.Player](https://github.com/Gyan-Ratan/Mr.Player)
 [contributors-url]: https://github.com/Gyan-Ratan/Mr.Player/graphs/contributors
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/gyanratan636/
+[linkedin-url]: https://www.linkedin.com/in/harshtyagi12/
