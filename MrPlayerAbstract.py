@@ -141,13 +141,8 @@ class MediaPlayer(Ui_MrPlayer):
         except Exception as err:
             print("Error in class MediaPlayer:", err)
     #Custom Function
-    def Recommend(self):
-            self.window = QtWidgets.QMainWindow()
-            self.ui = Ui_MainWindow()
-            self.ui.setupUi(self.window)
-            self.window.show()
     def RecommendWin(self):
-        os.system("python recommend.py")
+        os.system("python recommend.py") # to be fixed as it crashes the application it is here to open tkinter application
 
     def open_playlist_button(self):
 
