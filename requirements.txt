@@ -1,0 +1,6 @@
+PyQt5
+pyqt5-tools
+spotipy
+stagger
+Pillow
+cred

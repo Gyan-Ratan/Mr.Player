@@ -1,7 +1,7 @@
 import webbrowser
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 
-load_dotenv()
+# load_dotenv()
 
 from spotipy.oauth2 import SpotifyClientCredentials
 import tkinter as tk
