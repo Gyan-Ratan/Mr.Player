@@ -14,7 +14,7 @@ from MrPlayerUI import Ui_MrPlayer
 
 
 def hhmmss(ms):
-    """Converting milliseconds to hh:mm:ss format"""
+
     # s = 1000, m = 60000, h = 3600000
     h, r = divmod(ms, 360000)
     m, r = divmod(r, 60000)
@@ -33,9 +33,7 @@ default_ui_values = dict()
 
 
 def get_distinct_items(list1):
-    """Removes duplicates from parameter,
-        appends distinct only items to 'songs' list,
-        returns list to be added to playlist"""
+
 
     list1 = list(set(list1))  # remove duplicates
     global songs_database
@@ -152,7 +150,7 @@ class MediaPlayer(Ui_MrPlayer):
         os.system("python recommend.py")
 
     def open_playlist_button(self):
-        """Open local playlist file and add songs to the player playlist"""
+
 
         try:
             filter_text = "MrPlayer Playlist (*{});;".format(playlist_extension)
@@ -172,7 +170,7 @@ class MediaPlayer(Ui_MrPlayer):
             print("Inside open_playlist_button(): ", err)
 
     def empty_playlist_button(self):
-        """Removes all songs from the player playlist and resets it"""
+
         self.playlist.removeMedia(0, self.playlist.mediaCount())
         self.model.layoutChanged.emit()
         global songs_database
@@ -180,7 +178,7 @@ class MediaPlayer(Ui_MrPlayer):
         self.remove_metadata_media()
 
     def save_playlist_button(self):
-        """Save the current playlist as a local file"""
+
 
         status = self.playlist.mediaCount()
         if not status:
@@ -203,8 +201,7 @@ class MediaPlayer(Ui_MrPlayer):
                     file.write('\n'.join(songs_database))
 
     def add_songs(self, paths):
-        """Adds songs to the current playlist from their absolute file path.
-            A list of paths is passed as an argument to this function"""
+
         try:
             songs = []
             # accept only specific file extensions
@@ -231,7 +228,7 @@ class MediaPlayer(Ui_MrPlayer):
             print("Error in add_songs method:", err)
 
     def remove_song(self, modal_index):
-        """Remove the selected track if double clicked, and remove it from the 'songs' list"""
+
         try:
             index = modal_index.row()
             song_removed = self.playlist.media(index).canonicalUrl().toLocalFile()
@@ -253,7 +250,7 @@ class MediaPlayer(Ui_MrPlayer):
             print("Error in MediaPlayer - remove_song(): ", err)
 
     def playlist_position_changed(self, i):
-        """When the PlaylistView selection changes, update the player's playlist index and play the new selection"""
+
         try:
             if i > -1:
                 ix = self.model.index(i)
@@ -262,8 +259,7 @@ class MediaPlayer(Ui_MrPlayer):
             print("Error in MediaPlayer - playlist_position_changed(): ", err)
 
     def playlist_selection_changed(self, ix):
-        """We receive a QItemSelection from selectionChanged.
-        When the new item is selected in the PlaylistView"""
+
         try:
             i = ix.indexes()[0].row()
             self.playlist.setCurrentIndex(i)
@@ -271,7 +267,7 @@ class MediaPlayer(Ui_MrPlayer):
             print("Error in MediaPlayer - playlist_selection_changed(): ", err)
 
     def openfiles_button(self):
-        """Adds songs from local files if not already present in the playlist"""
+
 
         filters = dict()
         if len(supported_codecs) > 1: filters['All Audio files'] = '*' + ' *'.join(supported_codecs)
@@ -284,10 +280,7 @@ class MediaPlayer(Ui_MrPlayer):
         self.add_songs(paths,)
 
     def play_pause_icon(self):
-        """Change the icon of the Play/Pause button based on the state of the MediaPlayer
-        QMediaPlayer.StoppedState	0	Player is not palying, playback will begin from the start of the current track.
-        QMediaPlayer.PlayingState	1	The media player is currently playing content.
-        QMediaPlayer.PausedState	2   Player has paused playback and will resume from the position the player was paused at."""
+
         icon = QtGui.QIcon()
         if self.player.state() == 1:
             icon.addPixmap(QtGui.QPixmap("icon/pause.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -301,10 +294,7 @@ class MediaPlayer(Ui_MrPlayer):
         self.player.stop()  # stops the player
 
     def play_button(self):
-        """Play/Pause action based on the state of the MediaPlayer
-           QMediaPlayer.StoppedState 0	Player is not palying, playback will begin from the start of the current track.
-           QMediaPlayer.PlayingState 1	The media player is currently playing content.
-           QMediaPlayer.PausedState	 2  Player has paused playback and will resume from the position the player was paused at."""
+
         if self.playlist.mediaCount():
             if self.player.state() == 0 or self.player.state() == 2:
                 self.player.play()
@@ -322,7 +312,7 @@ class MediaPlayer(Ui_MrPlayer):
             self.playlist.previous()  # play previous track
 
     def mute_button(self):
-        """Mute the player based on its Mute status"""
+
         icon = QtGui.QIcon()
         if self.player.isMuted():
             self.player.setMuted(False)
@@ -336,7 +326,7 @@ class MediaPlayer(Ui_MrPlayer):
         self.MuteButton.setIcon(icon)
 
     def rewind_button(self):
-        """Rewind the player by 2 seconds per function call"""
+
         value = self.TimeSlider.value()
         if value >= 2000:
             self.TimeSlider.setValue(value - 2000)  # set player -2s
@@ -344,7 +334,7 @@ class MediaPlayer(Ui_MrPlayer):
             self.TimeSlider.setValue(0)  # set player at the start of the music if it has played for less than 2s
 
     def forward_button(self):
-        """Fast Forward the player by 2 seconds per function call"""
+
         value = self.TimeSlider.value()
         if self.player.duration() >= self.TimeSlider.value() + 2000:
             self.TimeSlider.setValue(value + 2000)  # add 2s to the player if more than 2s of playback is left
@@ -354,13 +344,7 @@ class MediaPlayer(Ui_MrPlayer):
             self.TimeSlider.setValue(0)  # if there is nothing to play, set the player to 0
 
     def shuffle_button(self):
-        """
-        QMediaPlaylist.PlaybackMode.CurrentItemOnce    0- Plays a song and stops there
-        QMediaPlaylist.PlaybackMode.CurrentItemInLoop  1- Plays the same song repeatedly
-        QMediaPlaylist.PlaybackMode.Sequential         2- Plays all songs one by one in sequence and stops if reaches the end
-        QMediaPlaylist.PlaybackMode.Loop               3- Plays from start of list if reaches the end
-        QMediaPlaylist.PlaybackMode.Random             4- Plays a song randomly from the list
-        """
+
         try:
             icon = QtGui.QIcon()
             if self.playlist.playbackMode() != QMediaPlaylist.PlaybackMode.Random:
@@ -382,13 +366,7 @@ class MediaPlayer(Ui_MrPlayer):
             print("Error in MediaPlayer - shuffle_button(): ", err)
 
     def repeat_button(self):
-        """
-        QMediaPlaylist.PlaybackMode.CurrentItemOnce    0- Plays a song and stops there
-        QMediaPlaylist.PlaybackMode.CurrentItemInLoop  1- Plays the same song repeatedly
-        QMediaPlaylist.PlaybackMode.Sequential         2- Plays all songs one by one in sequence and stops if reaches the end
-        QMediaPlaylist.PlaybackMode.Loop               3- Plays from start of list if reaches the end
-        QMediaPlaylist.PlaybackMode.Random             4- Plays a song randomly from the list
-        """
+
         try:
             icon = QtGui.QIcon()
             if self.playlist.playbackMode() == QMediaPlaylist.PlaybackMode.CurrentItemOnce:
@@ -427,7 +405,7 @@ class MediaPlayer(Ui_MrPlayer):
             print("Error in MediaPlayer - repeat_button(): ", err)
 
     def update_duration(self, duration):
-        """When a media is loaded into the player, update the TimeSlider range and keep record of duration of song"""
+
         try:
             self.TimeSlider.setMaximum(duration)
             if duration >= 0: self.songDuration = duration
@@ -435,7 +413,7 @@ class MediaPlayer(Ui_MrPlayer):
             print("Error in MediaPlayer - update_duration(): ", err)
 
     def update_position(self, position):
-        """Update the TimeDisplay if the TimeSlider is dragged"""
+
         try:
             if position >= 0: self.ElaspedTimeDisplay.setText(hhmmss(position))
             # Disable the events to prevent updating triggering a setPosition event (can cause stuttering).
@@ -454,7 +432,7 @@ class MediaPlayer(Ui_MrPlayer):
             print("Error in MediaPlayer - update_position(): ", err)
 
     def remove_metadata_media(self):
-        """Remove metadata information from the UI objects"""
+
         self.TitleInput.setText(default_ui_values['info'])
         self.DateInput.setText(default_ui_values['info'])
         self.SampleRateInput.setText(default_ui_values['info'])
@@ -466,7 +444,7 @@ class MediaPlayer(Ui_MrPlayer):
         self.ThumbnailView.setText(default_ui_values['thumbnail'])
 
     def update_metadata_media(self, e):
-        """Update metadata information only when there is a media playing or paused"""
+
         if e == QMediaPlayer.StalledMedia or e == QMediaPlayer.BufferingMedia or e == QMediaPlayer.BufferedMedia:
             try:
                 if self.player.isMetaDataAvailable():  # check if metadata is available in the current song
@@ -527,7 +505,7 @@ class MediaPlayer(Ui_MrPlayer):
         self.player.setVolume(self.VolumeSlider.value())  # set the player volume to desired value
 
     def error_alert(self, *args):
-        """If any error occurs in the player, this section is executed"""
+
         try:
             self.ThumbnailView.setPixmap(QtGui.QPixmap(""))
         except Exception as err:
